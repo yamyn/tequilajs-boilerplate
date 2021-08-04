@@ -1,99 +1,55 @@
 const { join } = require('path');
 const fs = require('fs');
 
-module.exports = function () {
+module.exports = function() {
   const { answers } = this;
   const payload = {
     config: answers,
   };
-  const pathToApp = answers.identifier;
-
-  if (fs.existsSync('./src')) {
-    this.fs.copyTpl(
-      this.templatePath(join('./src')),
-      this.destinationPath(`${pathToApp}/src`),
-      payload,
-    );
-  }
+  const pathToApp = 'tequila-app';
+  const appFolder = 'express';
 
   this.fs.copyTpl(
-    this.templatePath(join('./index.js')),
-    this.destinationPath(`${pathToApp}/index.js`),
+    this.templatePath(join(`./${appFolder}/src`)),
+    this.destinationPath(`${pathToApp}/src`),
     payload,
   );
+
   this.fs.copyTpl(
-    this.templatePath(join('./nest-cli.json')),
-    this.destinationPath(`${pathToApp}/nest-cli.json`),
-    payload,
-  );
-  this.fs.copyTpl(
-    this.templatePath(join('./package.json')),
+    this.templatePath(join(`./${appFolder}/package.json`)),
     this.destinationPath(`${pathToApp}/package.json`),
     payload,
   );
-  this.fs.copyTpl(
-    this.templatePath(join('./package-lock.json')),
-    this.destinationPath(`${pathToApp}/package-lock.json`),
-    payload,
-  );
-  this.fs.copyTpl(
-    this.templatePath(join('./README.md')),
-    this.destinationPath(`${pathToApp}/README.md`),
-    payload,
-  );
-  this.fs.copyTpl(
-    this.templatePath(join('./tsconfig.build.json')),
-    this.destinationPath(`${pathToApp}/tsconfig.build.json`),
-    payload,
-  );
-  this.fs.copyTpl(
-    this.templatePath(join('./tsconfig.json')),
-    this.destinationPath(`${pathToApp}/tsconfig.json`),
-    payload,
-  );
 
-  // files with "_" prefix
   this.fs.copyTpl(
-    this.templatePath(join('./_.editorconfig')),
+    this.templatePath(join(`./${appFolder}/.editorconfig`)),
     this.destinationPath(`${pathToApp}/.editorconfig`),
     payload,
   );
   this.fs.copyTpl(
-    this.templatePath(join('./_.env.example')),
+    this.templatePath(join(`./${appFolder}/.env.example`)),
     this.destinationPath(`${pathToApp}/.env.example`),
     payload,
   );
   this.fs.copyTpl(
-    this.templatePath(join('./_.eslintrc.json')),
+    this.templatePath(join(`./${appFolder}/.env`)),
+    this.destinationPath(`${pathToApp}/.env`),
+    payload,
+  );
+
+  this.fs.copyTpl(
+    this.templatePath(join(`./${appFolder}/.eslintrc.json`)),
     this.destinationPath(`${pathToApp}/.eslintrc.json`),
     payload,
   );
   this.fs.copyTpl(
-    this.templatePath(join('./_.gitignore')),
+    this.templatePath(join(`./${appFolder}/.gitignore`)),
     this.destinationPath(`${pathToApp}/.gitignore`),
     payload,
   );
   this.fs.copyTpl(
-    this.templatePath(join('./_.prettierrc')),
+    this.templatePath(join(`./${appFolder}/.prettierrc`)),
     this.destinationPath(`${pathToApp}/.prettierrc`),
     payload,
   );
-
-  // DOCKER
-  if (answers.wantedDocker.toLowerCase() === 'yes') {
-    this.fs.copyTpl(
-      this.templatePath(join('./docker')),
-      this.destinationPath(`${pathToApp}/docker`),
-      payload,
-    );
-  }
-
-  // DEPLOYS ON CLOUD
-  if (answers['deploy:heroku'] === 'Yes') {
-    this.fs.copyTpl(
-      this.templatePath(join('./deploy-heroku.sh')),
-      this.destinationPath(`${pathToApp}/deploy-heroku.sh`),
-      payload,
-    );
-  }
 };

@@ -1,27 +1,15 @@
 {
-  "name": "generator-nest-js-boilerplate",
+  "name": "generator-tequilajs-boilerplate",
   "version": "2.0.0",
-  "description": "This generator will help you to build your own Nest.js Mongodb API using TypeScript 4",
-  "author": "onix-systems",
+  "description": "",
+  "author": "Yaroslav Mynchenko",
   "license": "MIT",
   "main": "generators/app/index.js",
   "keywords": [
     "yeoman-generator",
-    "typescript",
-    "node",
-    "nodejs",
-    "rest",
-    "restfull",
-    "api",
-    "builder",
-    "generator",
-    "mongo",
-    "ts",
-    "starter",
-    "mongodb",
-    "auth",
-    "js",
-    "swagger"
+    "express",
+    "socket.io",
+    "Joi"
   ],
   "repository": {
     "name": "onix-systems",

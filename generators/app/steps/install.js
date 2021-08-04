@@ -1,7 +1,8 @@
 const chalk = require('chalk');
 
 module.exports = function() {
-  const {} = this.answers;
+  // const { folderName } = this.answers;
+  const folderName = 'tequila-app';
 
   if (this.options['skip-install']) {
     this.log(
