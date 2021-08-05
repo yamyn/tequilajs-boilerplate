@@ -1,6 +1,6 @@
 {
   "name": "generator-tequilajs-boilerplate",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "author": "Yaroslav Mynchenko",
   "license": "MIT",
@@ -12,11 +12,11 @@
     "Joi"
   ],
   "repository": {
-    "name": "onix-systems",
-    "email": "help@onix-systems.com",
-    "url": "https://github.com/Onix-Systems/nest-js-boilerplate"
+    "name": "tequilajs-boilerplate",
+    "email": "ricky.month@gmail.com",
+    "url": "https://github.com/yamyn/tequilajs-boilerplate"
   },
-  "homepage": "https://github.com/Onix-Systems/nest-js-boilerplate",
+  "homepage": "https://github.com/yamyn/tequilajs-boilerplate",
   "scripts": {
     "commit": "git-cz"
   },

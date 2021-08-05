@@ -7,7 +7,7 @@ const createAdapter = require('socket.io-redis');
 
 const CONFIG = require('./config/env');
 const events = require('./config/events');
-const { Socket } = require('tequilajs');
+const { Socket, Uploader } = require('tequilajs');
 
 const TestRoomGateway = require('./modules/TestRoom/TestRoom.gateway');
 
@@ -15,6 +15,7 @@ const app = express();
 app.use(cors());
 app.options('*', cors());
 
+Uploader.serveClient(app);
 const httpsServer = http.createServer(app);
 
 const redisClient = redis.createClient({
